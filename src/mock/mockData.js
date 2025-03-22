@@ -66,3 +66,36 @@ export const mockPosts = [
         createdAt: "2025-03-19T14:00:00Z",
     },
   ];
+
+  export const mockSubreddit = [
+    {
+        id: "1",
+        icon: "/mock_images/default-avatar.jpg",
+        name: "programming",
+        members: 120000,
+    },
+    {
+        id: "2",
+        icon: "/mock_images/default-avatar.jpg",
+        name: "webdev",
+        members: 90000,
+    },
+    {
+        id: "3",
+        icon: "/mock_images/default-avatar.jpg",
+        name: "learnprogramming",
+        members: 250000,
+    },
+    {
+        id: "4",
+        icon: "/mock_images/default-avatar.jpg",
+        name: "javascript",
+        members: 175000,
+    },
+    {
+        id: "5",
+        icon: "/mock_images/default-avatar.jpg",
+        name: "coding",
+        members: 2750000,
+    },
+  ];

@@ -1,0 +1,16 @@
+.firstRow {
+    display: flex;
+    margin-bottom: 2px;
+    align-items: center;
+}
+
+.name {
+    font-size: 14px;
+    margin-left: 6px;
+}
+
+.members {
+    font-size: 12px;
+    margin-left: 35px;
+    margin-bottom: 15px;
+}

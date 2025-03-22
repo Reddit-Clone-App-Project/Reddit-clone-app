@@ -3,6 +3,7 @@ import nightMode from './slices/nightModeSlice';
 import subreddits from './slices/subredditsSlice';
 import hotPosts from './slices/hotPostsSlice';
 import posts from './slices/postSlice';
+import rightSideBar from './slices/rightSideBarSlice';
 
 export const store = configureStore({
     reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
         subreddits,
         hotPosts,
         posts,
+        rightSideBar,
     },
 });

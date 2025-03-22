@@ -2,16 +2,20 @@
     margin: 10px auto;
     border: 1px;
     border-radius: 7px;
-    width: 50%;
+    width: 80%;
     padding: 20px;
     padding-top: 5px;    
+}
+
+.postList:hover {
+    background-color: #F6F8F9;
 }
 
 .postList:first-child {
     margin-top: 75px;
 }
 
-h3 {
+h2 {
     margin-top: 20px;
 }
 
@@ -26,6 +30,7 @@ h3 {
 
 .avatar {
     margin-right: 5px;
+    width: 30px;
 }
 
 .subreddit {
@@ -65,14 +70,19 @@ h3 {
     transform: scale(1.2);
   }
 
-.postList:hover {
-    background-color: #F6F8F9;
+.comment {
+    display: flex;
+}
+
+.commentIcon {
+    width: 20px;
+    margin-right: 7px;
 }
 
 hr {
     border: none;
     height: 1px;
     background-color: #00000019;
-    width: 51%;
+    width: 82%;
     margin: auto;
 }

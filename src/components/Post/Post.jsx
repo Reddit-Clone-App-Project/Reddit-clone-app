@@ -5,6 +5,7 @@ import EmptyArrowUp from "../../assets/images/post/empty-up.svg";
 import EmptyArrowDown from "../../assets/images/post/empty-down.svg";
 import OrangeArrowUp from "../../assets/images/post/orange-up.svg";
 import OrangeArrowDown from "../../assets/images/post/orange-down.svg";
+import CommentIcon from "../../assets/images/post/comment-icon.svg";
 
 function timeSinceDate(dateString) {
     const pastDate = new Date(dateString);
@@ -54,12 +55,12 @@ const Post = ({ post, comments }) => {
         <>
             <div className={styles.postList}>
                 <div className={styles.topPost}>
-                    <img className={styles.avatar} src={post.author.avatar} style={{width: '30px'}}/>
+                    <img className={styles.avatar} src={post.author.avatar}/>
                     <p>{post.author.username} · </p>
                     <p className={styles.date}>{timeSinceDate(post.createdAt)}</p>
                     <p className={styles.subreddit}>r/{post.subreddit}</p>
                 </div>
-                <h3>{post.title}</h3>
+                <h2>{post.title}</h2>
                 <p className={styles.content}>{post.content}</p>
                 <img className={styles.media} src={post.media}/>
                 <div className={styles.bottom}>
@@ -68,7 +69,10 @@ const Post = ({ post, comments }) => {
                         <p>{numVotes}</p>
                         <img className={styles.arrow} src={vote === 'down' ? OrangeArrowDown : EmptyArrowDown} onClick={() => handleVote('down')} alt="arrow"/>
                     </div>
-                    <p style={{ cursor: 'pointer' }} onClick={handleComment}>{post.comments} comments</p>
+                    <div className={styles.comment}>
+                        <img style={{ cursor: 'pointer' }} onClick={handleComment} className={styles.commentIcon} src={CommentIcon} alt="comment"/>
+                        <p style={{ cursor: 'pointer' }} onClick={handleComment}>{post.comments}</p>
+                    </div>
                 </div>
             </div>
             <div className={comments}>
