@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from './Post.module.css';
 import Comment from "../Comment/Comment";
-import EmptyArrowUp from "../../assets/images/post/empty-up.svg";
-import EmptyArrowDown from "../../assets/images/post/empty-down.svg";
-import OrangeArrowUp from "../../assets/images/post/orange-up.svg";
-import OrangeArrowDown from "../../assets/images/post/orange-down.svg";
-import CommentIcon from "../../assets/images/post/comment-icon.svg";
+import EmptyArrowUp from "../../assets/images/post/empty-up.svg?url";
+import EmptyArrowDown from "../../assets/images/post/empty-down.svg?url";
+import OrangeArrowUp from "../../assets/images/post/orange-up.svg?url";
+import OrangeArrowDown from "../../assets/images/post/orange-down.svg?url";
+import CommentIcon from "../../assets/images/post/comment-icon.svg?url";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchComments, selectCommentsByPostId } from "../../redux/slices/commentSlice";
 
 function timeSinceDate(dateString) {
-    const pastDate = new Date(dateString);
+    const pastDate = new Date(dateString * 1000);
     const currentDate = new Date();
     const diffInMs = currentDate - pastDate;
     const diffInHours = Math.round(diffInMs / (1000 * 60 * 60));
@@ -20,13 +22,21 @@ function timeSinceDate(dateString) {
     return `${diffInHours} h ago`.replace(".00", "");
 };
 
-const Post = ({ post, comments }) => {
+const Post = ({ post }) => {
     const [commentShown, setCommentShown] = useState(false);
     const [vote, setVote] = useState(null);
-    const [numVotes, setNumVotes] = useState(post.upvotes);
+    const [numVotes, setNumVotes] = useState(post.score);
+    const dispatch = useDispatch(); 
+    
+    const { comments, isLoading, error } = useSelector(state =>
+        selectCommentsByPostId(state, post.id)
+      );
 
     const handleComment = () => {
         setCommentShown(!commentShown);
+        if (!comments.length && !isLoading) {
+            dispatch(fetchComments({ postId: post.id, permalink: post.permalink }));
+        }
     };
 
     const handleVote = (direction) => {
@@ -49,20 +59,18 @@ const Post = ({ post, comments }) => {
         };
     };
 
-    const filteredComments = comments.filter(comment => comment.postId === post.id);
-
     return (
         <>
             <div className={styles.postList}>
                 <div className={styles.topPost}>
-                    <img className={styles.avatar} src={post.author.avatar}/>
-                    <p>{post.author.username} · </p>
-                    <p className={styles.date}>{timeSinceDate(post.createdAt)}</p>
+                    <img className={styles.avatar} src={`https://api.dicebear.com/6.x/personas/svg?seed=${post.author}`}/>
+                    <p>{post.author} · </p>
+                    <p className={styles.date}>{timeSinceDate(post.created_utc)}</p>
                     <p className={styles.subreddit}>r/{post.subreddit}</p>
                 </div>
                 <h2>{post.title}</h2>
-                <p className={styles.content}>{post.content}</p>
-                <img className={styles.media} src={post.media}/>
+                <p className={styles.content}>{post.selftext}</p>
+                <img className={styles.media} src={post.url}/>
                 <div className={styles.bottom}>
                     <div className={styles.upvotes}>
                         <img className={styles.arrow} src={vote === 'up' ? OrangeArrowUp : EmptyArrowUp} onClick={() => handleVote('up')} alt="arrow"/>
@@ -76,13 +84,19 @@ const Post = ({ post, comments }) => {
                 </div>
             </div>
             <div className={comments}>
-                {commentShown && filteredComments.length > 0 && (
-                    filteredComments.map((comment) => (
-                        <Comment 
-                        key={comment.id}
-                        comment={comment}
-                        />   
-                    ))
+                {commentShown && (
+                    <>
+                        {isLoading && <p>Loading comments...</p>}
+                        {error && <p>Error: {error}</p>}
+                        {comments.lenght > 0 &&
+                            comments.map((comment) => (
+                                <Comment 
+                                key={comment.id}
+                                comment={comment}
+                                />   
+                            ))
+                        }
+                    </>
                 )}
             </div>
             <hr/>
