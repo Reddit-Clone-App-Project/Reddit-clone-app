@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import styles from './Comment.module.css';
-import EmptyArrowUp from "../../assets/images/post/empty-up.svg";
-import EmptyArrowDown from "../../assets/images/post/empty-down.svg";
-import OrangeArrowUp from "../../assets/images/post/orange-up.svg";
-import OrangeArrowDown from "../../assets/images/post/orange-down.svg";
+import EmptyArrowUp from "../../assets/images/post/empty-up.svg?url";
+import EmptyArrowDown from "../../assets/images/post/empty-down.svg?url";
+import OrangeArrowUp from "../../assets/images/post/orange-up.svg?url";
+import OrangeArrowDown from "../../assets/images/post/orange-down.svg?url";
+import { render } from "@testing-library/react";
 
 
 function timeSinceDate(dateString) {
-    const pastDate = new Date(dateString);
+    const pastDate = new Date(dateString * 1000);
     const currentDate = new Date();
     const diffInMs = currentDate - pastDate;
     const diffInHours = Math.round(diffInMs / (1000 * 60 * 60));
@@ -21,7 +22,7 @@ function timeSinceDate(dateString) {
 
 const Comment = ({ comment }) => {
     const [vote, setVote] = useState(null);
-    const [numVotes, setNumVotes] = useState(comment.upvotes);
+    const [numVotes, setNumVotes] = useState(comment.score);
 
     const handleVote = (direction) => {
         if (direction === vote) {
@@ -42,16 +43,38 @@ const Comment = ({ comment }) => {
             setNumVotes(prev => prev + change);
         };
     };
+
+    const renderCommentBody = (text) => {
+        if (!text) return null;
+    
+        const imageRegex = /(https?:\/\/[^\s]+?\.(jpg|jpeg|png|webp|gif))/gi;
+        const parts = text.split(imageRegex);
+
+        return parts.map((part, i) => {
+            if (/^https?:\/\/.*\.(jpg|jpeg|png|webp|gif)$/i.test(part)) {
+                return ( 
+                    <img 
+                        key={i} 
+                        src={part} 
+                        alt='img' 
+                        className={styles.commentImg} 
+                    />
+                );
+            }
+            return <span key={i}>{part}</span>;
+        });
+    };
     
     return (
         <>
+            <hr className={styles.hrComment}/>
             <div className={styles.commentList}>
                 <div className={styles.topComment}>
-                    <img className={styles.avatar} src={comment.author.avatar} style={{width: '30px'}}/>
-                    <p>{comment.author.username} · </p>
-                    <p className={styles.date}>{timeSinceDate(comment.createdAt)}</p>
+                    <img className={styles.avatar} src={`https://api.dicebear.com/6.x/personas/svg?seed=${comment.author}`} style={{width: '30px'}}/>
+                    <p>{comment.author} · </p>
+                    <p className={styles.date}>{timeSinceDate(comment.created_utc)}</p>
                 </div>
-                <p className={styles.content}>{comment.content}</p>
+                <p className={styles.content}>{renderCommentBody(comment.body)}</p>
                 <div className={styles.bottom}>
                     <img className={styles.arrow} src={vote === 'up' ? OrangeArrowUp : EmptyArrowUp} onClick={() => handleVote('up')} alt="arrow"/>
                     <p>{numVotes}</p>

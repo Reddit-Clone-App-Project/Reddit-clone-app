@@ -4,6 +4,7 @@ import subreddits from './slices/subredditsSlice';
 import hotPosts from './slices/hotPostsSlice';
 import posts from './slices/postSlice';
 import rightSideBar from './slices/rightSideBarSlice';
+import comments from './slices/commentSlice';
 
 export const store = configureStore({
     reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
         hotPosts,
         posts,
         rightSideBar,
+        comments,
     },
 });

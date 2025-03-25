@@ -79,10 +79,36 @@ h2 {
     margin-right: 7px;
 }
 
+.buttonMore {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    padding: 2px;
+    width: 80px;
+    margin: 15px auto 20px auto;
+}
+
+.buttonMore:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.buttonMore:active {
+    text-decoration: none;
+}
+
 hr {
     border: none;
     height: 1px;
     background-color: #00000019;
-    width: 82%;
+    width: 83%;
+    margin: auto;
+}
+
+.hrComment {
+    border: none;
+    height: 1px;
+    background-color: #00000019;
+    width: 77%;
     margin: auto;
 }

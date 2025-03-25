@@ -12,6 +12,12 @@ export const fetchHotPosts = createAsyncThunk(
             selftext: child.data.selftext,
             thumbnail: child.data.thumbnail,
             subreddit: child.data.subreddit,
+            author: child.data.author,
+            score: child.data.score,
+            num_comments: child.data.num_comments,
+            created_utc: child.data.created_utc,
+            url: child.data.url_overridden_by_dest, 
+            permalink: child.data.permalink,
         }))
     }
 );
