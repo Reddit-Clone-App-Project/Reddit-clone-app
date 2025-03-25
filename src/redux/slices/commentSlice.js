@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchComments = createAsyncThunk(
     'comments/fetchComments',
-    async ({ postId, permalink, limit = 10}) => {
+    async ({ postId, permalink, limit }) => {
         const response = await axios.get(`https://www.reddit.com${permalink}.json`);
         const json = response.data;
         const allComments = json[1]?.data?.children || [];
@@ -44,12 +44,26 @@ const commentsSlice = createSlice({
             })
             .addCase(fetchComments.fulfilled, (state, action) => {
                 const { postId, comments } = action.payload;
-                state.commentsByPostId[postId] = {
+                const current = state.commentsByPostId[postId];
+              
+                if (!current) {
+                  state.commentsByPostId[postId] = {
                     comments,
                     isLoading: false,
                     error: null
-                };
-            })
+                  };
+                } else {
+                  const currentIds = new Set(current.comments.map(c => c.id));
+                  const newOnes = comments.filter(c => !currentIds.has(c.id));
+              
+                  state.commentsByPostId[postId].comments = [
+                    ...current.comments,
+                    ...newOnes
+                  ];
+                  state.commentsByPostId[postId].isLoading = false;
+                  state.commentsByPostId[postId].error = null;
+                }
+              })
             .addCase(fetchComments.rejected, (state, action) => {
                 const postId = action.meta.arg.postId;
                 state.commentsByPostId[postId] = {

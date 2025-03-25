@@ -26,6 +26,7 @@ const Post = ({ post }) => {
     const [commentShown, setCommentShown] = useState(false);
     const [vote, setVote] = useState(null);
     const [numVotes, setNumVotes] = useState(post.score);
+    const [commentLimit, setCommentLimit] = useState(5);
     const dispatch = useDispatch(); 
     
     const { comments, isLoading, error } = useSelector(state =>
@@ -37,8 +38,14 @@ const Post = ({ post }) => {
     const handleComment = () => {
         setCommentShown(!commentShown);
         if (!comments.length && !isLoading) {
-            dispatch(fetchComments({ postId: post.id, permalink: post.permalink,  }));
+            dispatch(fetchComments({ postId: post.id, permalink: post.permalink, limit: commentLimit }));
         }
+    };
+
+    const handleMore = () => {
+        const newLimit = commentLimit + 5;
+        setCommentLimit(newLimit);
+        dispatch(fetchComments({ postId: post.id, permalink: post.permalink, limit: newLimit }));
     };
 
     const handleVote = (direction) => {
@@ -81,7 +88,7 @@ const Post = ({ post }) => {
                     </div>
                     <div className={styles.comment}>
                         <img style={{ cursor: 'pointer' }} onClick={handleComment} className={styles.commentIcon} src={CommentIcon} alt="comment"/>
-                        <p style={{ cursor: 'pointer' }} onClick={handleComment}>{post.comments}</p>
+                        <p style={{ cursor: 'pointer' }} onClick={handleComment}>{post.num_comments}</p>
                     </div>
                 </div>
             </div>
@@ -97,6 +104,12 @@ const Post = ({ post }) => {
                                 comment={comment}
                                 />   
                             ))
+                        }
+                        {comments.length > 0 &&
+                            <>
+                                <hr className={styles.hrComment}/>
+                                <p className={styles.buttonMore} onClick={handleMore}>Show more</p>
+                            </>
                         }
                     </>
                 )}
