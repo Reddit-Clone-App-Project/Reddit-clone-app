@@ -26,7 +26,7 @@ const Post = ({ post }) => {
     const [commentShown, setCommentShown] = useState(false);
     const [vote, setVote] = useState(null);
     const [numVotes, setNumVotes] = useState(post.score);
-    const [commentLimit, setCommentLimit] = useState(5);
+    const [commentLimit, setCommentLimit] = useState(25);
     const dispatch = useDispatch(); 
     
     const { comments, isLoading, error } = useSelector(state =>

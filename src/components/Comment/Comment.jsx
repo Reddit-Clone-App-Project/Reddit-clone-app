@@ -47,23 +47,80 @@ const Comment = ({ comment }) => {
     const renderCommentBody = (text) => {
         if (!text) return null;
     
-        const imageRegex = /(https?:\/\/[^\s]+?\.(jpg|jpeg|png|webp|gif))/gi;
-        const parts = text.split(imageRegex);
-
+        const decodeHtml = (html) => {
+            const txt = document.createElement('textarea');
+            txt.innerHTML = html;
+            return txt.value;
+        };
+    
+        const cleanedText = text.replace(/\b(jpg|jpeg|png|webp|gif)\s*\?[^ \n]+/gi, match => '<<<IMG_FRAGMENT:' + match + '>>>');
+    
+        const imageRegex = /https?:\/\/[^\s)]+?\.(jpg|jpeg|png|webp|gif)(\?[^\s)]*)?|https?:\/\/preview\.redd\.it\/[^\s)]+|!\[gif\]\((giphy\|[^)]+)\)/gi;
+        const parts = cleanedText.split(imageRegex).filter(p => p !== undefined && p !== null);
+    
+        let previewBase = null;
+    
         return parts.map((part, i) => {
-            if (/^https?:\/\/.*\.(jpg|jpeg|png|webp|gif)$/i.test(part)) {
-                return ( 
-                    <img 
-                        key={i} 
-                        src={part} 
-                        alt='img' 
-                        className={styles.commentImg} 
+            const decodedPart = decodeHtml(part).trim();
+    
+            if (/^https?:\/\/[^\s)]+?\.(jpg|jpeg|png|webp|gif)(\?[^\s)]*)?$/i.test(decodedPart)) {
+                return (
+                    <img
+                        key={i}
+                        src={decodedPart}
+                        alt="img"
+                        className={styles.commentImg}
                     />
                 );
             }
-            return <span key={i}>{part}</span>;
+    
+            if (/^https?:\/\/preview\.redd\.it\/[^\s.]+$/i.test(decodedPart)) {
+                previewBase = decodedPart;
+                return null;
+            }
+    
+            const fragMatch = decodedPart.match(/^<<<IMG_FRAGMENT:(jpg|jpeg|png|webp|gif)\s*\?([^\s>]+)>>$/i);
+            if (fragMatch && previewBase) {
+                const ext = fragMatch[1];
+                const query = fragMatch[2];
+                const fullUrl = `${previewBase}.${ext}?${query}`;
+                previewBase = null;
+    
+                return (
+                    <img
+                        key={i}
+                        src={fullUrl}
+                        alt="img"
+                        className={styles.commentImg}
+                    />
+                );
+            }
+    
+            const giphyMatch = decodedPart.match(/^giphy\|([a-zA-Z0-9]+)(?:\|([a-zA-Z0-9]+))?$/i);
+            if (giphyMatch) {
+                const gifId = giphyMatch[1];
+                const variant = giphyMatch[2] || 'giphy';
+                const giphyUrl = `https://media.giphy.com/media/${gifId}/${variant}.gif`;
+
+                return (
+                    <img
+                        key={i}
+                        src={giphyUrl}
+                        alt="gif"
+                        className={styles.commentImg}
+                    />
+                );
+            }
+
+            if (/^(jpg|jpeg|png|webp|gif)\s*\?/i.test(decodedPart)) {
+                return null;
+            }
+    
+            return decodedPart.length > 0 ? <span key={i}>{decodedPart} </span> : null;
         });
     };
+    
+    
     
     return (
         <>
