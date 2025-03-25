@@ -32,10 +32,12 @@ const Post = ({ post }) => {
         selectCommentsByPostId(state, post.id)
       );
 
+    console.log("Commenti ricevuti per il post", post.id, comments);
+
     const handleComment = () => {
         setCommentShown(!commentShown);
         if (!comments.length && !isLoading) {
-            dispatch(fetchComments({ postId: post.id, permalink: post.permalink }));
+            dispatch(fetchComments({ postId: post.id, permalink: post.permalink,  }));
         }
     };
 
@@ -83,12 +85,12 @@ const Post = ({ post }) => {
                     </div>
                 </div>
             </div>
-            <div className={comments}>
+            <div>
                 {commentShown && (
                     <>
-                        {isLoading && <p>Loading comments...</p>}
+                        {isLoading && <p style={{ display: "flex", justifyContent: 'center'}}>Loading comments...</p>}
                         {error && <p>Error: {error}</p>}
-                        {comments.lenght > 0 &&
+                        {comments.length > 0 &&
                             comments.map((comment) => (
                                 <Comment 
                                 key={comment.id}

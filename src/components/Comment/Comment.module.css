@@ -25,6 +25,9 @@
 .content {
     margin: 20px 0;
     text-align: left;
+    white-space: pre-wrap;        
+    word-break: break-word;       
+    overflow-wrap: anywhere;
 }
 
 .bottom {
@@ -44,4 +47,20 @@
 
 .commentList:hover {
     background-color: #F6F8F9;
+}
+
+.hrComment:first-child {
+    border: none;
+    height: 1px;
+    background-color: #00000019;
+    width: 83%;
+    margin: auto;
+}
+
+.hrComment {
+    border: none;
+    height: 1px;
+    background-color: #00000019;
+    width: 77%;
+    margin: auto;
 }

@@ -79,10 +79,15 @@ h2 {
     margin-right: 7px;
 }
 
+.loading {
+    display: flex;
+    justify-content: center;
+}
+
 hr {
     border: none;
     height: 1px;
     background-color: #00000019;
-    width: 82%;
+    width: 83%;
     margin: auto;
 }

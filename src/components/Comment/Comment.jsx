@@ -4,6 +4,7 @@ import EmptyArrowUp from "../../assets/images/post/empty-up.svg?url";
 import EmptyArrowDown from "../../assets/images/post/empty-down.svg?url";
 import OrangeArrowUp from "../../assets/images/post/orange-up.svg?url";
 import OrangeArrowDown from "../../assets/images/post/orange-down.svg?url";
+import { render } from "@testing-library/react";
 
 
 function timeSinceDate(dateString) {
@@ -42,16 +43,38 @@ const Comment = ({ comment }) => {
             setNumVotes(prev => prev + change);
         };
     };
+
+    const renderCommentBody = (text) => {
+        if (!text) return null;
+    
+        const imageRegex = /(https?:\/\/[^\s]+?\.(jpg|jpeg|png|webp|gif))/gi;
+        const parts = text.split(imageRegex);
+
+        return parts.map((part, i) => {
+            if (/^https?:\/\/.*\.(jpg|jpeg|png|webp|gif)$/i.test(part)) {
+                return ( 
+                    <img 
+                        key={i} 
+                        src={part} 
+                        alt='img' 
+                        className={styles.commentImg} 
+                    />
+                );
+            }
+            return <span key={i}>{part}</span>;
+        });
+    };
     
     return (
         <>
+            <hr className={styles.hrComment}/>
             <div className={styles.commentList}>
                 <div className={styles.topComment}>
                     <img className={styles.avatar} src={`https://api.dicebear.com/6.x/personas/svg?seed=${comment.author}`} style={{width: '30px'}}/>
                     <p>{comment.author} · </p>
                     <p className={styles.date}>{timeSinceDate(comment.created_utc)}</p>
                 </div>
-                <p className={styles.content}>{comment.body}</p>
+                <p className={styles.content}>{renderCommentBody(comment.body)}</p>
                 <div className={styles.bottom}>
                     <img className={styles.arrow} src={vote === 'up' ? OrangeArrowUp : EmptyArrowUp} onClick={() => handleVote('up')} alt="arrow"/>
                     <p>{numVotes}</p>

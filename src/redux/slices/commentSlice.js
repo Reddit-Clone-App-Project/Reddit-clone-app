@@ -3,12 +3,17 @@ import axios from "axios";
 
 export const fetchComments = createAsyncThunk(
     'comments/fetchComments',
-    async ({ postId, permalink }) => {
+    async ({ postId, permalink, limit = 10}) => {
         const response = await axios.get(`https://www.reddit.com${permalink}.json`);
         const json = response.data;
+        const allComments = json[1]?.data?.children || [];
+        const limitComments = allComments
+            .filter(c => c.kind === 't1' && c.data?.body && c.data?.author)
+            .slice(0, limit);
+
         return {
             postId,
-            comments: json[1].data.children.map(c => ({
+            comments: limitComments.map(c => ({
                 id: c.data.id,
                 author: c.data.author,
                 created_utc: c.data.created_utc,
