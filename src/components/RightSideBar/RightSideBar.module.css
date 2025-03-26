@@ -1,12 +1,13 @@
 .rightSideBar {
     position: sticky;
-    top: 75px; 
-    align-self: start; 
+    top: 75px;
+    align-self: flex-start; 
     border: 1px;
     border-radius: 7px;
     background-color: #F6F8F9;
     padding: 10px 25px;
     margin-right: 40px; 
+    margin-left: auto;
     margin-top: 175px;
     width: 22%;
 }
