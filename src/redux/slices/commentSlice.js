@@ -36,11 +36,18 @@ const commentsSlice = createSlice({
         builder
             .addCase(fetchComments.pending, (state, action) => {
                 const postId = action.meta.arg.postId;
-                state.commentsByPostId[postId] = {
-                    comments: [],
-                    isLoading: true,
-                    error: null
-                };
+                const current = state.commentsByPostId[postId];
+
+                if (current && current.comments.length > 0) {
+                    state.commentsByPostId[postId].isLoadingMore = true;
+                } else {
+                    state.commentsByPostId[postId] = {
+                        comments: [],
+                        isLoading: true,
+                        isLoadingMore: false,
+                        error: null
+                    };
+                }
             })
             .addCase(fetchComments.fulfilled, (state, action) => {
                 const { postId, comments } = action.payload;
@@ -50,6 +57,7 @@ const commentsSlice = createSlice({
                   state.commentsByPostId[postId] = {
                     comments,
                     isLoading: false,
+                    isLoadingMore: false,
                     error: null
                   };
                 } else {
@@ -61,6 +69,7 @@ const commentsSlice = createSlice({
                     ...newOnes
                   ];
                   state.commentsByPostId[postId].isLoading = false;
+                  state.commentsByPostId[postId].isLoadingMore = false;
                   state.commentsByPostId[postId].error = null;
                 }
               })
@@ -69,6 +78,7 @@ const commentsSlice = createSlice({
                 state.commentsByPostId[postId] = {
                   comments: [],
                   isLoading: false,
+                  isLoadingMore: false,
                   error: action.error.message
                 };
             });

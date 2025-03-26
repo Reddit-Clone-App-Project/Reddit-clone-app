@@ -30,7 +30,7 @@ const Post = ({ post }) => {
     const [commentLimit, setCommentLimit] = useState(5);
     const dispatch = useDispatch(); 
     
-    const { comments, isLoading, error } = useSelector(state =>
+    const { comments, isLoading, isLoadingMore, error } = useSelector(state =>
         selectCommentsByPostId(state, post.id)
       );
 
@@ -98,8 +98,14 @@ const Post = ({ post }) => {
             <div>
                 {commentShown && (
                     <>
-                        {isLoading && <p style={{ display: "flex", justifyContent: 'center'}}>Loading comments...</p>}
-                        {error && <p>Error: {error}</p>}
+                        {isLoading &&
+                            <>
+                                <hr className={styles.hrComment}/>
+                                <p className={styles.loading}>Loading comments...</p>
+                            </>
+                        }
+                        {error && 
+                            <p>Error: {error}</p>}
                         {comments.length > 0 &&
                             comments.map((comment) => (
                                 <Comment 
@@ -108,7 +114,13 @@ const Post = ({ post }) => {
                                 />   
                             ))
                         }
-                        {comments.length > 0 &&
+                        {isLoadingMore && (
+                            <>
+                                <hr className={styles.hrComment}/>
+                                <p className={styles.loading}>Loading more comments...</p>
+                            </>
+                        )}
+                        {comments.length > 0 && !isLoadingMore &&
                             <>
                                 <hr className={styles.hrComment}/>
                                 <p className={styles.buttonMore} onClick={handleMore}>Show more</p>
