@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from './Post.module.css';
 import Comment from "../Comment/Comment";
+import PostMedia from "../Media/Media";
 import EmptyArrowUp from "../../assets/images/post/empty-up.svg?url";
 import EmptyArrowDown from "../../assets/images/post/empty-down.svg?url";
 import OrangeArrowUp from "../../assets/images/post/orange-up.svg?url";
@@ -68,6 +69,8 @@ const Post = ({ post }) => {
         };
     };
 
+    
+
     return (
         <>
             <div className={styles.postList}>
@@ -79,7 +82,7 @@ const Post = ({ post }) => {
                 </div>
                 <h2>{post.title}</h2>
                 <p className={styles.content}>{post.selftext}</p>
-                <img className={styles.media} src={post.url}/>
+                <PostMedia post={post} />
                 <div className={styles.bottom}>
                     <div className={styles.upvotes}>
                         <img className={styles.arrow} src={vote === 'up' ? OrangeArrowUp : EmptyArrowUp} onClick={() => handleVote('up')} alt="arrow"/>

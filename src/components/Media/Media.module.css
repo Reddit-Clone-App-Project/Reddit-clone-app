@@ -1,0 +1,6 @@
+.media {
+    display: flex;
+    margin: 15px auto;
+    width: 80%;
+    border-radius: 8px;
+}

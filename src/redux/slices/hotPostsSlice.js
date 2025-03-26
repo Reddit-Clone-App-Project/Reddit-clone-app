@@ -16,8 +16,10 @@ export const fetchHotPosts = createAsyncThunk(
             score: child.data.score,
             num_comments: child.data.num_comments,
             created_utc: child.data.created_utc,
-            url: child.data.url_overridden_by_dest, 
+            url: child.data.url_overridden_by_dest?.trim() || null, 
             permalink: child.data.permalink,
+            post_hint: child.data.post_hint,
+            media: child.data.media,
         }))
     }
 );
