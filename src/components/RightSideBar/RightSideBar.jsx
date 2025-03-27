@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPopularSubreddits, selectPopularSubreddits } from '../../redux/slices/popularSubredditsSlice';
 import styles from './RightSideBar.module.css';
-import Subreddit from '../Subreddit/Subreddit';
+import SubredditsPopular from '../Subreddit/SubredditsPopular';
 
 const RightSideBar = () => {
   const { subreddits, isLoading, error }= useSelector(state => state.popularSubreddits);
@@ -20,7 +20,7 @@ const RightSideBar = () => {
       <h3>Popular Community</h3>
       {subreddits.map((subreddit) => {
         return (
-            <Subreddit
+            <SubredditsPopular
               key={subreddit.id}
               subreddit={subreddit}
             />

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from './Subreddit.module.css';
+import styles from './SubredditsPopular.module.css';
 
-const Subreddit = ({ subreddit }) => {
+const SubredditsPopular = ({ subreddit }) => {
     const isValidIcon = subreddit.icon && subreddit.icon.startsWith('http');
 
     return (
@@ -18,4 +18,4 @@ const Subreddit = ({ subreddit }) => {
     )
 };
 
-export default Subreddit;
+export default SubredditsPopular;
