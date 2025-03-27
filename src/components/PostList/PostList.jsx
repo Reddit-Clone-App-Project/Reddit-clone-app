@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchHotPosts, selectTrendings, clearPosts } from '../../redux/slices/hotPostsSlice';
+import { fetchHotPosts, selectTrendings } from '../../redux/slices/hotPostsSlice';
 import { useEffect } from 'react';
 import styles from './PostList.module.css';
 import Post from '../Post/Post';
@@ -12,12 +12,11 @@ const PostList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(clearPosts());  
     dispatch(fetchHotPosts(20));
   }, [dispatch]);
 
-  if (isLoading) return <div className={styles.loading}>Loading posts...</div>;
-  if (error) return <div className={styles.loading}>Error: {error}</div>;
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className={styles.postList}>
@@ -28,7 +27,7 @@ const PostList = () => {
             post={post}
           />
         )
-      })}
+      })};
     </div>
   );
 };
