@@ -9,6 +9,7 @@ import OrangeArrowDown from "../../assets/images/post/orange-down.svg?url";
 import CommentIcon from "../../assets/images/post/comment-icon.svg?url";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchComments, selectCommentsByPostId } from "../../redux/slices/commentSlice";
+import MarkdownRenderer from '../MarkdownRenderer/MarkdownRenderer';
 
 function timeSinceDate(dateString) {
     const pastDate = new Date(dateString * 1000);
@@ -81,7 +82,11 @@ const Post = ({ post }) => {
                     <p className={styles.subreddit}>r/{post.subreddit}</p>
                 </div>
                 <h2 className={styles.title}>{post.title}</h2>
-                <p className={styles.content}>{post.selftext}</p>
+                {post.selftext && (
+                    <div className={styles.content}>
+                        <MarkdownRenderer content={post.selftext} />
+                    </div>
+                )}
                 <PostMedia post={post} />
                 <div className={styles.bottom}>
                     <div className={styles.upvotes}>
