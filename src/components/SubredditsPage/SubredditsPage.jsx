@@ -18,7 +18,7 @@ const SubredditsPage = () => {
     if (error) return <div className={styles.loading}>Error: {error}</div>;
 
     return (
-        <div className={styles.SubredditsPage}>
+        <div className={styles.subredditsPage}>
             <h2>r/{subredditName}</h2>
             {posts.map((post) => {
                 return (

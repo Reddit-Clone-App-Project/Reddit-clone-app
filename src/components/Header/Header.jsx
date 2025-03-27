@@ -15,6 +15,7 @@ import Avatar from '../../assets/images/header/avatar.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNightMode } from '../../redux/slices/nightModeSlice';
 import SearchBar from './SearchBar/SearchBar';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -22,10 +23,10 @@ const Header = () => {
 
     return (
     <header>
-        <div className='left-header'>
+        <Link to={`/`} className='left-header'>
             <img src={RedditLogo} alt='Reddit Logo'/>
             <img src={nightModeState ? RedditTextLogoNight : RedditTextLogoMorning} alt='Reddit Logo'/>
-        </div>
+        </Link>
         <SearchBar />
         <div className='right-header'>
             <img className='header-button' src={nightModeState ? AdsNight : Ads} alt='Ads'/>
