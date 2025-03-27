@@ -80,7 +80,7 @@ const Post = ({ post }) => {
                     <p className={styles.date}>{timeSinceDate(post.created_utc)}</p>
                     <p className={styles.subreddit}>r/{post.subreddit}</p>
                 </div>
-                <h2>{post.title}</h2>
+                <h2 className={styles.title}>{post.title}</h2>
                 <p className={styles.content}>{post.selftext}</p>
                 <PostMedia post={post} />
                 <div className={styles.bottom}>

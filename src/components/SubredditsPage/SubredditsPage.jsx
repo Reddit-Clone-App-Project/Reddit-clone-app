@@ -19,7 +19,7 @@ const SubredditsPage = () => {
 
     return (
         <div className={styles.subredditsPage}>
-            <h2>r/{subredditName}</h2>
+            <h2 className={styles.title}>r/{subredditName}</h2>
             {posts.map((post) => {
                 return (
                     <Post
