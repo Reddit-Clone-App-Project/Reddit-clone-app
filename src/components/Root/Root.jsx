@@ -1,9 +1,8 @@
-import React from 'react'
-import Header from '../Header/Header'
-import LeftSideBar from '../LeftSideBar/LeftSideBar'
-import { Outlet } from 'react-router-dom'
-import PostList from '../PostList/PostList'
-import RightSideBar from '../RightSideBar/RightSideBar'
+import React from 'react';
+import Header from '../Header/Header';
+import LeftSideBar from '../LeftSideBar/LeftSideBar';
+import { Outlet } from 'react-router-dom';
+import RightSideBar from '../RightSideBar/RightSideBar';
 import './Root.css';
 
 const Root = () => {
@@ -12,12 +11,11 @@ const Root = () => {
         <Header />
         <main>
             <LeftSideBar />
-            <PostList />
-            <RightSideBar />
             <Outlet />
+            <RightSideBar />
         </main>
     </>
   )
-}
+};
 
-export default Root
+export default Root;
