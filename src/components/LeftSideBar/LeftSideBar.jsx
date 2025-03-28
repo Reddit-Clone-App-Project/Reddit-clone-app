@@ -17,6 +17,7 @@ import Press from '../../assets/images/LeftSideBar/press.svg';
 import Help from '../../assets/images/LeftSideBar/question.svg';
 import Topics from '../../assets/images/LeftSideBar/topic.svg';
 import Ads from '../../assets/images/general/ads.svg';
+import { Link } from 'react-router-dom';
 
 const LeftSideBar = () => {
     const [feedsOpen, setFeedsOpen] = useState(true);
@@ -27,10 +28,10 @@ const LeftSideBar = () => {
     return (
     <nav className='left-side-bar custom-scroll'>
             <div className='home-bar'>
-                <div className='bar-btn'>
+                <Link to={`/`} className='bar-btn'>
                     <img className='icon-nav' src={Home} alt='Home'/>
                     <p>Home</p>
-                </div>
+                </Link>
                 <div className='bar-btn'>
                     <img className='icon-nav' src={Popular} alt='Popular'/>
                     <p>Popular</p>

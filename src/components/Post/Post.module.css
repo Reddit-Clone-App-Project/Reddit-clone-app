@@ -15,8 +15,9 @@
     margin-top: 75px;
 }
 
-h2 {
+.title {
     margin-top: 20px;
+    font-weight: 500;
 }
 
 .topPost {

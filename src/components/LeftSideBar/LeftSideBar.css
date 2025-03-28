@@ -63,6 +63,8 @@ nav{
     height: 40px;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .bar-btn:hover{
