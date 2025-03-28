@@ -35,8 +35,6 @@ const Post = ({ post }) => {
         selectCommentsByPostId(state, post.id)
       );
 
-    console.log("Commenti ricevuti per il post", post.id, comments);
-
     const handleComment = () => {
         setCommentShown(!commentShown);
         if (!comments.length && !isLoading) {

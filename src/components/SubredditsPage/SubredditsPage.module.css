@@ -1,13 +1,24 @@
 .subredditsPage {
     width: 100%;
-    margin-left: 22em;
+    margin-left: 19.5em;
     margin-top: 70px;
 }
 
-.title {
-    font-size: 40px;
-    text-align: center;
+.header {
+    margin-left: 60px;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 32px;
+    text-align: start;
+    margin-left: 20px;
 }
 
 .loading {
@@ -16,4 +27,26 @@
     font-size: 35px;
     padding: 2px;
     margin: 100px 0 0 auto;
+}
+
+.members {
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: 65px;
+}
+
+.description {
+    margin-bottom: 30px;
+    margin-left: 15px;
+    width: 91%;
+    font-size: 15px;
+}
+
+.hrDescription {
+    width: 95%;
+}
+
+.icon {
+    width: 80px;
+    border-radius: 100px;
 }
