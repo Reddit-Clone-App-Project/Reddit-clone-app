@@ -1,0 +1,31 @@
+.toggle-switch {
+    width: 50px;
+    height: 25px;
+    background: linear-gradient(to right, #dee2e6, #f8f9fa);
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .toggle-circle {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+  }
+  
+  .toggle-switch.on {
+    background: linear-gradient(to right, #f8f9fa, #dee2e6);
+  }
+  
+  .toggle-switch.on .toggle-circle {
+    left: 25px;
+  }
+  

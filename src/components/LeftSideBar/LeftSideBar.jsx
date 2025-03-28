@@ -18,6 +18,7 @@ import Help from '../../assets/images/LeftSideBar/question.svg';
 import Topics from '../../assets/images/LeftSideBar/topic.svg';
 import Ads from '../../assets/images/general/ads.svg';
 import { Link } from 'react-router-dom';
+import { openLink } from '../../util/openOnNewTab';
 
 const LeftSideBar = () => {
     const [feedsOpen, setFeedsOpen] = useState(true);
@@ -50,7 +51,7 @@ const LeftSideBar = () => {
                     <p>CUSTOM FEEDS</p>
                     <div className={`open-close ${feedsOpen ? 'open' : ''}`}></div>
                 </div>
-                <div className={`dropdown-menu ${feedsOpen ? 'open' : ''}`}>
+                <div className={`dropdown-menu-left-side-bar ${feedsOpen ? 'open' : ''}`}>
                     <div className='bar-btn'>
                         <img className='icon-nav' src={New} alt='Create a custom feed'/>
                         <p>Create a custom feed</p>
@@ -66,7 +67,7 @@ const LeftSideBar = () => {
                     <p>RECENT</p>
                     <div className={`open-close ${recentOpen ? 'open' : ''}`}></div>
                 </div>
-                <div className={`dropdown-menu ${recentOpen ? 'open' : ''}`}>
+                <div className={`dropdown-menu-left-side-bar ${recentOpen ? 'open' : ''}`}>
                     <div className='bar-btn'>
                         <img className='icon-nav' src={New} alt='Create a custom feed'/>
                         <p>Create a custom feed</p>
@@ -78,7 +79,7 @@ const LeftSideBar = () => {
                     <p>COMMUNITIES</p>
                     <div className={`open-close ${communitiesOpen ? 'open' : ''}`}></div>
                 </div>
-                <div className={`dropdown-menu ${communitiesOpen ? 'open' : ''}`}>
+                <div className={`dropdown-menu-left-side-bar ${communitiesOpen ? 'open' : ''}`}>
                     <div className='bar-btn'>
                         <img className='icon-nav' src={New} alt='Create a custom feed'/>
                         <p>Create a community</p>
@@ -90,29 +91,29 @@ const LeftSideBar = () => {
                     <p>RESOURCES</p>
                     <div className={`open-close ${resourcesOpen ? 'open' : ''}`}></div>
                 </div>
-                <div className={`dropdown-menu ${resourcesOpen ? 'open' : ''}`}>
+                <div className={`dropdown-menu-left-side-bar ${resourcesOpen ? 'open' : ''}`}>
                     <div className='resource-part-1'>
-                        <div className='bar-btn'>
+                        <div className='bar-btn' onClick={() => openLink('https://redditinc.com/')}>
                             <img className='icon-nav' src={About} alt='About Reddit'/>
                             <p>About Reddit</p>
                         </div>
-                        <div className='bar-btn'>
+                        <div className='bar-btn' onClick={() => openLink('https://ads.reddit.com/register?utm_source=web3x_consumer&utm_name=left_nav_cta')}>
                             <img className='icon-nav' src={Ads} alt='Advertise'/>
                             <p>Advertise</p>
                         </div>
-                        <div className='bar-btn'>
+                        <div className='bar-btn' onClick={() => openLink('https://support.reddithelp.com/hc/vi-vn?utm_campaign=evergreen&utm_medium=footer&utm_source=reddit')}>
                             <img className='icon-nav' src={Help} alt='Help'/>
                             <p>Help</p>
                         </div>
-                        <div className='bar-btn'>
+                        <div className='bar-btn' onClick={() => openLink('https://redditinc.com/blog')}>
                             <img className='icon-nav' src={Blog} alt='Blog'/>
                             <p>Blog</p>
                         </div>
-                        <div className='bar-btn'>
+                        <div className='bar-btn' onClick={() => openLink('https://redditinc.com/careers')}>
                             <img className='icon-nav' src={Career} alt='Careers'/>
                             <p>Careers</p>
                         </div>
-                        <div className='bar-btn'>
+                        <div className='bar-btn' onClick={() => openLink('https://redditinc.com/press')}>
                             <img className='icon-nav' src={Press} alt='Press'/>
                             <p>Press</p>
                         </div>
