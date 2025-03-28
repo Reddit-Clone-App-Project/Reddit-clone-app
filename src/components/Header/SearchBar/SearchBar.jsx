@@ -1,3 +1,4 @@
+// ! Delete clearPosts and fetchHotPosts
 import React, { useEffect, useRef, useState } from "react";
 import "./SearchBar.css";
 import Search from "../../../assets/images/header/search.svg";
@@ -13,7 +14,7 @@ import {
   selectSubreddits,
   setQuery,
 } from "../../../redux/slices/subredditsSlice";
-import { clearPosts, fetchHotPosts } from "../../../redux/slices/hotPostsSlice";
+// import { clearPosts, fetchHotPosts } from "../../../redux/slices/hotPostsSlice";
 
 const SearchBar = () => {
   const nightModeState = useSelector(selectNightMode);
@@ -28,18 +29,18 @@ const SearchBar = () => {
   useEffect(() => {
     if (query.trim().length === 0) {
       dispatch(clearResults());
-      dispatch(fetchHotPosts(6));
+      // dispatch(fetchHotPosts(6));
       return;
     }
-    dispatch(clearPosts());
+    // dispatch(clearPosts());
     dispatch(fetchSubreddits(query));
-  }, [query, dispatch]);
+  }, [query]);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         dispatch(clearResults());
-        dispatch(clearPosts());
+        // dispatch(clearPosts());
       }
     }
 
@@ -75,7 +76,7 @@ const SearchBar = () => {
                   <h5>TRENDING TODAY</h5>
                 </div>
               )}
-              {(subreddits.length > 0 && trendings.length === 0) &&
+              {subreddits.length > 0 &&
                 subreddits.map((subreddit) => (
                   <div className="dropdown-item">
                     <img
@@ -96,8 +97,8 @@ const SearchBar = () => {
                     </a>
                   </div>
                 ))}
-              {trendings &&
-                trendings.map((trending) => (
+              {(trendings && subreddits.length == 0) &&
+                trendings.slice(0, 6).map((trending) => (
                   <div key={trending.id} className="trending-item">
                     <div className="trending-item-left">
                       <p>
