@@ -55,7 +55,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-top: 8px;
-  z-index: 1000;
+  /* z-index: 1000; */
   max-height: 400px;
   overflow-y: auto;
   animation: dropdownFade 0.2s ease-in-out;
@@ -81,6 +81,7 @@
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
+  cursor: pointer;
 }
 
 .dropdown-item img {
@@ -98,6 +99,7 @@
   gap: 16px;
   padding: 12px 16px;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 
 .trending-item-left {
@@ -149,4 +151,34 @@
 .dropdown-item:last-child {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+/* Apply night mode */
+.middle-header.night{
+  background-color: hsl(0, 0%, 22%);
+}
+
+.middle-header.night .search-input{
+  color: hsl(0, 0%, 90%);
+}
+
+.middle-header.night .search-input:focus{
+  background-color: hsl(0, 0%, 22%)!important;
+}
+
+.middle-header.night .search-input::placeholder{
+  color: hsl(0, 0%, 90%);
+}
+
+.middle-header.night .dropdown{
+  background-color: hsl(0, 0%, 22%);
+  color: hsl(0, 0%, 90%)
+}
+
+.middle-header.night .trending-item:hover {
+  background-color: hsl(0, 0%, 25%);
+}
+
+.middle-header.night .dropdown-item:hover{
+  background-color: hsl(0, 0%, 25%);
 }

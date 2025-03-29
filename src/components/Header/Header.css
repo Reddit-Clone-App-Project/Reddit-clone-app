@@ -9,6 +9,7 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 999;
 }
 
 .left-header,
@@ -36,8 +37,16 @@ header {
 .right-header img {
   width: 25px;
   height: 25px;
-  margin-left: 15px;
   padding: 3px;
+}
+
+.header-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 15px;
+  padding: 5px;
 }
 
 .header-button:hover {
@@ -46,19 +55,33 @@ header {
   transition: background-color 0.3s ease;
 }
 
+header.night .header-button:hover{
+  background-color: #252525;
+  border-radius: 50%;
+}
+
 .createPost {
   display: flex;
   align-items: center;
-  margin-left: 15px;
+  padding: 8px !important;
+}
+
+.createPost:hover{
+  border-radius: 15px !important;
 }
 
 .createPost img {
   width: 18px;
   height: 18px;
-  margin-right: 5px;
 }
 
 .createPost span {
   font-size: 14px;
   font-weight: bold;
+}
+
+/* Apply Dark Mode */
+header.night{
+  background-color: #0E1113;
+  border-bottom: 1px solid #333333; 
 }

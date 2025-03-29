@@ -3,13 +3,17 @@
     top: 75px;
     align-self: flex-start; 
     border: 1px;
-    border-radius: 7px;
+    border-radius: 15px;
     background-color: #F6F8F9;
     padding: 10px 25px;
     margin-right: 40px; 
     margin-left: auto;
     margin-top: 15em;
     width: 18%;
+}
+
+.rightSideBar.dark{
+    background-color: #101010;
 }
 
 h3 {

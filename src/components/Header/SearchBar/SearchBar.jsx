@@ -1,3 +1,4 @@
+// ! Delete clearPosts and fetchHotPosts
 import React, { useEffect, useRef, useState } from "react";
 import "./SearchBar.css";
 import Search from "../../../assets/images/header/search.svg";
@@ -13,8 +14,8 @@ import {
   selectSubreddits,
   setQuery,
 } from "../../../redux/slices/subredditsSlice";
-import { clearPosts, fetchHotPosts } from "../../../redux/slices/hotPostsSlice";
-import { useNavigate } from 'react-router-dom';
+// import { clearPosts, fetchHotPosts } from "../../../redux/slices/hotPostsSlice";
+ import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
   const nightModeState = useSelector(selectNightMode);
@@ -30,18 +31,18 @@ const SearchBar = () => {
   useEffect(() => {
     if (query.trim().length === 0) {
       dispatch(clearResults());
-      dispatch(fetchHotPosts(6));
+      // dispatch(fetchHotPosts(6));
       return;
     }
-    dispatch(clearPosts());
+    // dispatch(clearPosts());
     dispatch(fetchSubreddits(query));
-  }, [query, dispatch]);
+  }, [query]);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         dispatch(clearResults());
-        dispatch(clearPosts());
+        // dispatch(clearPosts());
       }
     }
 
@@ -50,7 +51,7 @@ const SearchBar = () => {
   }, [dispatch]);
 
   return (
-    <div className="middle-header">
+    <div className={`middle-header ${nightModeState ? 'night' : ''}`}>
       <div className="search-bar">
         <img src={nightModeState ? SearchNight : Search} alt="Search" />
         <input
@@ -65,7 +66,7 @@ const SearchBar = () => {
       </div>
       {/* Drop down */}
       {isFocused && (
-        <div ref={dropdownRef} className="dropdown">
+        <div ref={dropdownRef} className="dropdown custom-scroll">
           {isLoading ? (
             <div className="dropdown-item">Loading...</div>
           ) : (
@@ -77,7 +78,7 @@ const SearchBar = () => {
                   <h5>TRENDING TODAY</h5>
                 </div>
               )}
-              {(subreddits.length > 0 && trendings.length === 0) &&
+              {subreddits.length > 0 &&
                 subreddits.map((subreddit) => (
                   <div className="dropdown-item">
                     <img
@@ -98,8 +99,8 @@ const SearchBar = () => {
                     </a>
                   </div>
                 ))}
-              {trendings &&
-                trendings.map((trending) => (
+              {(trendings && subreddits.length == 0) &&
+                trendings.slice(0, 6).map((trending) => (
                   <div key={trending.id} className="trending-item">
                     <div className="trending-item-left">
                       <p>

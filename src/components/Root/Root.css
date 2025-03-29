@@ -1,3 +1,13 @@
+.app.night{
+    background-color: #0E1113;
+    color: #d7dadc;
+}
+
+.app.night a{
+    color: #ffffff;
+}
+
 main {
     display: flex;
 }
+
