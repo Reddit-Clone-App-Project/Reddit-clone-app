@@ -55,6 +55,11 @@ header {
   transition: background-color 0.3s ease;
 }
 
+header.night .header-button:hover{
+  background-color: #252525;
+  border-radius: 50%;
+}
+
 .createPost {
   display: flex;
   align-items: center;
@@ -73,4 +78,10 @@ header {
 .createPost span {
   font-size: 14px;
   font-weight: bold;
+}
+
+/* Apply Dark Mode */
+header.night{
+  background-color: #0E1113;
+  border-bottom: 1px solid #333333; 
 }

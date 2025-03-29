@@ -1,63 +1,82 @@
 .avatar-dropdown {
-    position: absolute;
-    background-color: white;
-    right: 5px;
-    top: 52px;
-    width: 250px;
-    font-size: 13px;
-    padding: 20px 0px 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
+  position: absolute;
+  background-color: white;
+  right: 5px;
+  top: 52px;
+  width: 250px;
+  font-size: 13px;
+  padding: 20px 0px 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
 .avatar-dropdown.open {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-.avatar-img{
-    margin-right: 5px;
+.avatar-img {
+  margin-right: 5px;
 }
 
 .avatar-block {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.avatar-block:hover{
-    background-color: hsl(0, 0%, 96%);
+.avatar-block:hover {
+  background-color: hsl(0, 0%, 96%);
 }
 
 .avatar-block > img {
-    height: 25px;
-    width: 25px;
+  height: 25px;
+  width: 25px;
 }
 
 .contributing-program-info {
-    display: flex;
-    align-items: center;
-    opacity: 0.7;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
 }
 
 .contributing-program-info > img {
-    height: 16px;
-    width: 16px;
+  height: 16px;
+  width: 16px;
 }
 
 .avatar-dark-mode {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .avatar-dark-mode-info {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+/* Apply night mode */
+.avatar-dropdown.night {
+  background-color: #1a1a1b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.avatar-dropdown.night p {
+  color: #d7dadc;
+}
+
+.avatar-dropdown.night .avatar-block:hover {
+  background-color: #2d2d2e;
+}
+
+.avatar-dropdown.night .contributing-program-info {
+  opacity: 0.5;
 }

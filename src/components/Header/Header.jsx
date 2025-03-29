@@ -22,11 +22,17 @@ import AvatarDropdown from "./AvatarDropdown/AvatarDropdown";
 const Header = () => {
   const nightModeState = useSelector(selectNightMode);
   const [openAvatar, setOpenAvatar] = useState(false);
-  const avatarRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const avatarButtonRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (avatarRef.current && !avatarRef.current.contains(event.target)) {
+      // Close only if clicking outside both dropdown and avatar button
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        !avatarButtonRef.current.contains(event.target)
+      ) {
         setOpenAvatar(false);
       }
     }
@@ -35,7 +41,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
+    <header className={`${nightModeState ? 'night' : ''}`}>
       <Link to={`/`} className="left-header">
         <img src={RedditLogo} alt="Reddit Logo" />
         <img
@@ -81,11 +87,11 @@ const Header = () => {
             e.stopPropagation();
             setOpenAvatar(!openAvatar);
           }}
-          ref={avatarRef}
+          ref={avatarButtonRef}
         >
           <img src={Avatar} alt="Avatar" />
         </div>
-        <AvatarDropdown openAvatar={openAvatar} />
+        <AvatarDropdown openAvatar={openAvatar} dropdownRef={dropdownRef} />
       </div>
     </header>
   );

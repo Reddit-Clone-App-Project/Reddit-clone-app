@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import styles from './Comment.module.css';
 import EmptyArrowUp from "../../assets/images/post/empty-up.svg?url";
 import EmptyArrowDown from "../../assets/images/post/empty-down.svg?url";
+import EmptyArrowUpDark from "../../assets/images/post/dark/empty-up-dark.svg?url";
+import EmptyArrowDownDark from "../../assets/images/post/dark/empty-down-dark.svg?url";
 import OrangeArrowUp from "../../assets/images/post/orange-up.svg?url";
 import OrangeArrowDown from "../../assets/images/post/orange-down.svg?url";
 import { render } from "@testing-library/react";
+import { useSelector } from "react-redux";
+import { selectNightMode } from "../../redux/slices/nightModeSlice";
 
 
 function timeSinceDate(dateString) {
@@ -21,6 +25,7 @@ function timeSinceDate(dateString) {
 };
 
 const Comment = ({ comment }) => {
+    const nightMode = useSelector(selectNightMode);
     const [vote, setVote] = useState(null);
     const [numVotes, setNumVotes] = useState(comment.score);
 
@@ -125,7 +130,7 @@ const Comment = ({ comment }) => {
     return (
         <>
             <hr className={styles.hrComment}/>
-            <div className={styles.commentList}>
+            <div className={`${styles.commentList} ${nightMode ? styles.dark : ''}`}>
                 <div className={styles.topComment}>
                     <img className={styles.avatar} src={`https://api.dicebear.com/6.x/personas/svg?seed=${comment.author}`} style={{width: '30px'}}/>
                     <p>{comment.author} · </p>
@@ -133,9 +138,9 @@ const Comment = ({ comment }) => {
                 </div>
                 <p className={styles.content}>{renderCommentBody(comment.body)}</p>
                 <div className={styles.bottom}>
-                    <img className={styles.arrow} src={vote === 'up' ? OrangeArrowUp : EmptyArrowUp} onClick={() => handleVote('up')} alt="arrow"/>
+                    <img className={styles.arrow} src={vote === 'up' ? OrangeArrowUp : (nightMode ? EmptyArrowUpDark : EmptyArrowUp)} onClick={() => handleVote('up')} alt="arrow"/>
                     <p>{numVotes}</p>
-                    <img className={styles.arrow} src={vote === 'down' ? OrangeArrowDown : EmptyArrowDown} onClick={() => handleVote('down')} alt="arrow"/>
+                    <img className={styles.arrow} src={vote === 'down' ? OrangeArrowDown : (nightMode ? EmptyArrowDownDark : EmptyArrowDown)} onClick={() => handleVote('down')} alt="arrow"/>
                 </div>
             </div>
         </>
