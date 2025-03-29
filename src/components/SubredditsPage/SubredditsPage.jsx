@@ -45,7 +45,7 @@ const SubredditsPage = () => {
                     <p className={styles.members}>{subreddit?.subs.toLocaleString()} members</p>
                 </div>
                 <div className={styles.description}>
-                    <MarkdownRenderer content={subreddit.description} />
+                    <MarkdownRenderer content={subreddit?.description} />
                 </div>
             </div>
             <hr className={styles.hrDescription}/>

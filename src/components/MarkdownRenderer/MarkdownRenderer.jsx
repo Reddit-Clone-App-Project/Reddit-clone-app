@@ -4,6 +4,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import he from 'he';
 
 const transformMarkdown = (text) => {
+  if (!text || typeof text !== 'string') return '';
+
   const decoded = he.decode(text);
   const withSpoilers = decoded.replace(/>!(.*?)!</g, '<span class="spoiler">$1</span>');
   const withSubreddits = withSpoilers.replace(

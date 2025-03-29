@@ -82,7 +82,7 @@ const Post = ({ post }) => {
                 <h2 className={styles.title}>{post.title}</h2>
                 {post.selftext && (
                     <div className={styles.content}>
-                        <MarkdownRenderer content={post.selftext} />
+                        <MarkdownRenderer content={post?.selftext || ''} />
                     </div>
                 )}
                 <PostMedia post={post} />
