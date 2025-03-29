@@ -14,6 +14,7 @@ import {
   setQuery,
 } from "../../../redux/slices/subredditsSlice";
 import { clearPosts, fetchHotPosts } from "../../../redux/slices/hotPostsSlice";
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
   const nightModeState = useSelector(selectNightMode);
@@ -24,6 +25,7 @@ const SearchBar = () => {
   const trendings = useSelector((state) => state.hotPosts.trendings);
   const dropdownRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (query.trim().length === 0) {

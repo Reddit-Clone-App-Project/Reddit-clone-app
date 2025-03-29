@@ -26,7 +26,8 @@ const SubredditsPage = () => {
 
     const icon = subreddit?.icon || subreddit?.communityIcon;
 
-
+    if (isLoadingInfo) return <div className={styles.loading}>Loading Info...</div>;
+    if (errorInfo) return <div className={styles.loading}>Error: {error}</div>;
     if (isLoading) return <div className={styles.loading}>Loading posts...</div>;
     if (error) return <div className={styles.loading}>Error: {error}</div>;
 
