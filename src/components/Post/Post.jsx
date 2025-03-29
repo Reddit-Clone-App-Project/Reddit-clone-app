@@ -42,12 +42,10 @@ const Post = ({ post }) => {
   const [numVotes, setNumVotes] = useState(post.score);
   const [commentLimit, setCommentLimit] = useState(5);
   const dispatch = useDispatch();
-
+  
   const { comments, isLoading, isLoadingMore, error } = useSelector((state) =>
     selectCommentsByPostId(state, post.id)
   );
-
-  console.log("Commenti ricevuti per il post", post.id, comments);
 
   const handleComment = () => {
     setCommentShown(!commentShown);
@@ -82,12 +80,12 @@ const Post = ({ post }) => {
       let change = 0;
 
       if (vote === null) {
-        change = direction === "up" ? 1 : -1;
-      } else if (vote === "up" && direction === "down") {
-        change = -2;
-      } else if (vote === "down" && direction === "up") {
-        change = 2;
-      }
+          change = direction === "up" ? 1 : -1;
+        } else if (vote === "up" && direction === "down") {
+          change = -2;
+        } else if (vote === "down" && direction === "up") {
+          change = 2;
+        };
 
       setVote(direction);
       setNumVotes((prev) => prev + change);
@@ -109,7 +107,7 @@ const Post = ({ post }) => {
         <h2 className={styles.title}>{post.title}</h2>
         {post.selftext && (
           <div className={styles.content}>
-            <MarkdownRenderer content={post.selftext} />
+            <MarkdownRenderer content={post?.selftext || ''} />
           </div>
         )}
         <PostMedia post={post} />

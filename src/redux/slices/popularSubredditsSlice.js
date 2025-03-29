@@ -10,6 +10,7 @@ export const fetchPopularSubreddits = createAsyncThunk(
             name: child.data.display_name,
             subs: child.data.subscribers,
             icon: child.data.icon_img,
+            description: child.data.public_description,
         }))
     }
 );
