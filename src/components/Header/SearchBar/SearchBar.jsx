@@ -49,7 +49,7 @@ const SearchBar = () => {
   }, [dispatch]);
 
   return (
-    <div className="middle-header">
+    <div className={`middle-header ${nightModeState ? 'night' : ''}`}>
       <div className="search-bar">
         <img src={nightModeState ? SearchNight : Search} alt="Search" />
         <input
@@ -64,7 +64,7 @@ const SearchBar = () => {
       </div>
       {/* Drop down */}
       {isFocused && (
-        <div ref={dropdownRef} className="dropdown">
+        <div ref={dropdownRef} className="dropdown custom-scroll">
           {isLoading ? (
             <div className="dropdown-item">Loading...</div>
           ) : (
