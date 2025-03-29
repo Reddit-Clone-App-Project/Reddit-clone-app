@@ -61,7 +61,7 @@ const SearchBar = () => {
           onChange={(e) => dispatch(setQuery(e.target.value))}
           className="search-input"
           onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
+          onBlur={() => setTimeout(() => setIsFocused(false), 100)}   
         />
       </div>
       {/* Drop down */}
@@ -80,7 +80,16 @@ const SearchBar = () => {
               )}
               {subreddits.length > 0 &&
                 subreddits.map((subreddit) => (
-                  <div className="dropdown-item">
+                  <div 
+                    key={subreddit.id}
+                    className="dropdown-item"
+                    onMouseDown={() => {
+                      navigate(`/r/${subreddit.display_name}`);
+                      dispatch(clearResults());
+                      dispatch(setQuery(''));
+          
+                    }}
+                  >
                     <img
                       src={
                         subreddit.icon_img
@@ -89,17 +98,10 @@ const SearchBar = () => {
                       }
                       alt="icon"
                     />
-                    <a
-                      key={subreddit.id}
-                      href={`https://www.reddit.com/r/${subreddit.display_name}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <strong>r/{subreddit.display_name}</strong>
-                    </a>
+                    <strong>r/{subreddit.display_name}</strong>
                   </div>
                 ))}
-              {(trendings && subreddits.length == 0) &&
+              {(trendings && subreddits.length === 0) &&
                 trendings.slice(0, 6).map((trending) => (
                   <div key={trending.id} className="trending-item">
                     <div className="trending-item-left">
