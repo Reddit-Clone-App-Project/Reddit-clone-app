@@ -1,22 +1,32 @@
 # Reddit Clone
-🚧 **Project Status: Work in Progress** 🚧
 
-This is an open-source Reddit Clone currently in development. The goal of this project is to create a platform that allows users to post content, engage in discussions, and vote on posts, similar to Reddit.
+👾 **Project Status: Work in Progress** 👾
 
-## Features (Planned & In Progress)
-- 📝 User authentication & authorization
-- 📌 Create, edit, and delete posts
-- 💬 Commenting and nested discussions
-- ⬆️⬇️ Upvote & downvote system
-- 🔍 Search and filtering options
-- 📱 Responsive design for mobile and desktop
-- 🚀 Performance optimizations
+This is an open-source Reddit Clone designed to replicate the core functionalities of Reddit, allowing users to post content, engage in discussions, and vote on posts.
 
-## Tech Stack
-- **Frontend:** React, and Redux
-- **Reddit API** [Link](https://www.reddit.com/dev/api/)
+🚧 **Note:** Authentication has not been implemented yet for security reasons. Future plans include integrating authentication using **Node.js and Express** for server-side authentication.
 
-## Installation
+---
+
+## 🚀 Features (Planned & In Progress)
+- ✅ **Upvote & Downvote System** *(Completed)*
+- ✅ **Search and Filtering Options** *(Completed)*
+- ✅ **Responsive Design (Mobile & Desktop)** *(Completed)*
+- 🔄 **User Authentication & Authorization** *(Planned)*
+- 📝 **Create, Edit, and Delete Posts** *(Planned)*
+- 💬 **Commenting and Nested Discussions** *(Planned)*
+- ⚡ **Performance Optimizations** *(Planned)*
+
+---
+
+## 🛠 Tech Stack
+- **Frontend:** React, Redux
+- **API:** [Reddit API](https://www.reddit.com/dev/api/)
+- **Authentication (Planned):** Node.js, Express (Future Implementation)
+
+---
+
+## 🏗 Installation & Setup
 To set up the project locally, follow these steps:
 
 ```bash
@@ -33,5 +43,9 @@ npm install
 npm run dev  
 ```
 
-## License
-*In progress...*
+---
+
+## 📜 License
+This project is licensed under the **MIT License**.
+
+Feel free to contribute, suggest improvements, or report issues! 🚀
