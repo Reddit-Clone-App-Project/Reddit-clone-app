@@ -7,7 +7,7 @@ nav {
   border-right: 0.0625em solid lightgrey;
   display: flex;
   padding-top: 0.625em;
-  width: 22%;
+  width: 15%;
   font-size: 0.78rem;
   font-weight: 400;
   display: flex;
@@ -158,8 +158,10 @@ nav.night .custom-scroll::-webkit-scrollbar-track {
   nav{
     display: none;
     width: 290px;
+    background-color: white;
   }
   .home-bar, .feeds-bar, .recent-bar, .resource-bar, .communities-bar{
     width: 100%;
   }
 }
+

@@ -1,6 +1,5 @@
 .firstRow {
     display: flex;
-    margin-bottom: 0.125em;
     align-items: center;
     margin-left: 0.625em;
 }
@@ -16,4 +15,19 @@
     font-size: 0.8em;
     margin-left: 3em;
     margin-bottom: 0.9375em;
+}
+
+
+@media only screen and (min-width: 1800px) {
+    .firstRow {
+        font-size: 1.2em;
+        margin-top: 0.5em;
+        margin-left: 1.6em;
+    }
+
+    .members {
+        text-align: center;
+        margin-left: 0;
+        font-size: 0.9em;
+    }
 }
