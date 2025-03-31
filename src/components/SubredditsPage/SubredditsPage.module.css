@@ -1,46 +1,46 @@
 .subredditsPage {
     width: 88%;
     margin-left: 25em;
-    margin-top: 70px;
+    margin-top: 4.375em;
 }
 
 .header {
-    margin-left: 60px;
+    margin-left: 3.75em;
 }
 
 .headerContent {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
 }
 
 .title {
-    font-size: 32px;
+    font-size: 2em;
     text-align: start;
-    margin-left: 10px;
-    margin-top: 20px;
+    margin-left: 0.625em;
+    margin-top: 1.25em;
 }
 
 .loading {
     display: flex;
     justify-content: center;
-    font-size: 35px;
-    padding: 2px;
-    margin: 100px 0 0 auto;
+    font-size: 2.1875em;
+    padding: 0.125em;
+    margin: 6.25em 0 0 auto;
 }
 
 .members {
-    font-size: 14px;
+    font-size: 0.875em;
     margin-left: auto;
-    margin-right: 65px;
-    margin-top: 20px;
+    margin-right: 4.0625em;
+    margin-top: 1.25em;
 }
 
 .description {
-    margin-bottom: 30px;
-    margin-left: 15px;
+    margin-bottom: 1.875em;
+    margin-left: 0.9375em;
     width: 91%;
-    font-size: 15px;
+    font-size: 0.9375em;
 }
 
 .hrDescription {
@@ -48,23 +48,23 @@
 }
 
 .icon {
-    width: 100px;
-    border-radius: 100px;
-    border: 5px solid white;
-    margin-left: 20px;
+    width: 6.25em;
+    border-radius: 6.25em;
+    border: 0.3125em solid white;
+    margin-left: 1.25em;
     background-color: white;
 }
 
 .bannerImage {
     width: 95%;
     height: 100%;
-    border-radius: 10px;
-    margin-bottom: -35px;
+    border-radius: 0.625em;
+    margin-bottom: -2.1875em;
 }
 
 .bannerImageColor {
     width: 95%;
     height: 100%;
-    border-radius: 10px;
-    margin-bottom: -35px;
+    border-radius: 0.625em;
+    margin-bottom: -2.1875em;
 }

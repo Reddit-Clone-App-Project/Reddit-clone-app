@@ -1,10 +1,10 @@
 .commentList {
     text-align: center;
-    margin: 10px auto;
-    border: 1px;
-    border-radius: 7px;
+    margin: 0.625em auto;
+    border: 0.0625em;
+    border-radius: 0.4375em;
     width: 75%;
-    padding: 20px;
+    padding: 1.25em;
     padding-top: 0;
 }
 
@@ -14,16 +14,16 @@
 }
 
 .date {
-    margin-left: 5px;
-    font-size: 12px;
+    margin-left: 0.3125em;
+    font-size: 0.75em;
 }
 
 .avatar {
-    margin-right: 5px;
+    margin-right: 0.3125em;
 }
 
 .content {
-    margin: 20px 0;
+    margin: 1.25em 0;
     text-align: left;
     white-space: pre-wrap;        
     word-break: break-word;       
@@ -55,7 +55,7 @@
 
 .hrComment:first-child {
     border: none;
-    height: 1px;
+    height: 0.0625em;
     background-color: #00000019;
     width: 83%;
     margin: auto;
@@ -63,7 +63,7 @@
 
 .hrComment {
     border: none;
-    height: 1px;
+    height: 0.0625em;
     background-color: #00000019;
     width: 77%;
     margin: auto;

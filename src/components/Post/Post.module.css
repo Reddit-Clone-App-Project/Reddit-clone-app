@@ -1,10 +1,10 @@
 .postList {
-  margin: 10px auto;
-  border: 1px;
-  border-radius: 7px;
+  margin: 0.625em auto;
+  border: 0.0625em;
+  border-radius: 0.4375em;
   width: 88%;
-  padding: 20px;
-  padding-top: 5px;
+  padding: 1.25em;
+  padding-top: 0.3125em;
   transition: background-color 0.2s ease;
   cursor: pointer;
 }
@@ -18,11 +18,11 @@
 }
 
 .postList:first-child {
-  margin-top: 75px;
+  margin-top: 4.6875em;
 }
 
 .title {
-  margin-top: 20px;
+  margin-top: 1.25em;
   font-weight: 500;
 }
 
@@ -30,14 +30,15 @@
   display: flex;
   align-items: center;
 }
+
 .date {
-  margin-left: 5px;
-  font-size: 12px;
+  margin-left: 0.3125em;
+  font-size: 0.75em;
 }
 
 .avatar {
-  margin-right: 5px;
-  width: 30px;
+  margin-right: 0.3125em;
+  width: 1.875em;
 }
 
 .subreddit {
@@ -45,20 +46,20 @@
 }
 
 .content {
-  margin: 15px 0;
+  margin: 0.9375em 0;
   text-align: left;
 }
 
 .media {
   display: flex;
-  margin: 15px auto;
+  margin: 0.9375em auto;
   width: 80%;
 }
 
 .bottom {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 0.3125em;
   align-items: center;
 }
 
@@ -70,7 +71,7 @@
 .arrow {
   margin-right: 0;
   cursor: pointer;
-  width: 20px;
+  width: 1.25em;
 }
 
 .arrow:active {
@@ -82,16 +83,16 @@
 }
 
 .commentIcon {
-  width: 20px;
-  margin-right: 7px;
+  width: 1.25em;
+  margin-right: 0.4375em;
 }
 
 .buttonMore {
   display: flex;
   justify-content: center;
-  font-size: 14px;
-  padding: 2px;
-  margin: 15px auto 20px auto;
+  font-size: 0.875em;
+  padding: 0.125em;
+  margin: 0.9375em auto 1.25em auto;
 }
 
 .buttonMore:hover {
@@ -106,24 +107,23 @@
 .loading {
   display: flex;
   justify-content: center;
-  font-size: 14px;
-  padding: 2px;
-  margin: 15px auto 20px auto;
+  font-size: 0.875em;
+  padding: 0.125em;
+  margin: 0.9375em auto 1.25em auto;
 }
 
 hr {
-    border: none;
-    height: 1px;
-    background-color: #00000019;
-    width: 90%;
-    margin: auto;
+  border: none;
+  height: 0.0625em;
+  background-color: #00000019;
+  width: 90%;
+  margin: auto;
 }
 
 .hrComment {
-    border: none;
-    height: 1px;
-    background-color: #00000019;
-    width: 78%;
-    margin: auto;
+  border: none;
+  height: 0.0625em;
+  background-color: #00000019;
+  width: 78%;
+  margin: auto;
 }
-

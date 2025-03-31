@@ -6,7 +6,7 @@
 .loading {
     display: flex;
     justify-content: center;
-    font-size: 35px;
-    padding: 2px;
-    margin: 100px 0 0 auto;
+    font-size: 2.1875em;
+    padding: 0.125em;
+    margin: 6.25em 0 0 auto;
 }

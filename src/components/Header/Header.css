@@ -2,10 +2,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0.625em 1.25em;
   background-color: #ffffff;
-  border-bottom: 1px solid #e1e1e1;
-  height: 50px;
+  border-bottom: 0.0625em solid #e1e1e1;
+  height: 3.125em;
   position: fixed;
   width: 100%;
   top: 0;
@@ -25,28 +25,28 @@ header {
 }
 
 .left-header img:first-child {
-  width: 35px;
-  height: 35px;
+  width: 2.1875em;
+  height: 2.1875em;
 }
 
 .left-header img:last-child {
-  margin-left: 10px;
-  width: 90px;
+  margin-left: 0.625em;
+  width: 5.625em;
 }
 
 .right-header img {
-  width: 25px;
-  height: 25px;
-  padding: 3px;
+  width: 1.5625em;
+  height: 1.5625em;
+  padding: 0.1875em;
 }
 
-.header-button{
+.header-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 5px;
-  margin-left: 15px;
-  padding: 5px;
+  margin-right: 0.3125em;
+  margin-left: 0.9375em;
+  padding: 0.3125em;
 }
 
 .header-button:hover {
@@ -55,7 +55,7 @@ header {
   transition: background-color 0.3s ease;
 }
 
-header.night .header-button:hover{
+header.night .header-button:hover {
   background-color: #252525;
   border-radius: 50%;
 }
@@ -63,25 +63,25 @@ header.night .header-button:hover{
 .createPost {
   display: flex;
   align-items: center;
-  padding: 8px !important;
+  padding: 0.5em !important;
 }
 
-.createPost:hover{
-  border-radius: 15px !important;
+.createPost:hover {
+  border-radius: 0.9375em !important;
 }
 
 .createPost img {
-  width: 18px;
-  height: 18px;
+  width: 1.125em;
+  height: 1.125em;
 }
 
 .createPost span {
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: bold;
 }
 
 /* Apply Dark Mode */
-header.night{
+header.night {
   background-color: #0E1113;
-  border-bottom: 1px solid #333333; 
+  border-bottom: 0.0625em solid #333333; 
 }
