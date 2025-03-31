@@ -26,23 +26,23 @@ header {
 }
 
 .mobile-left-side-bar{
-  width: 20px;
-  height: 20px;
+  width: 1.25em;
+  height: 1.25em;
   margin-right: 10%;
   display: none;
 }
 
 .logo img:first-child {
-  width: 35px;
-  height: 35px;
+  width: 2.1875em;
+  height: 2.1875em;
 }
 
 .logo img:last-child {
-  margin-left: 10px;
-  width: 90px;
+  margin-left: 0.625em;
+  width: 5.625em;
 }
 
-.right-header img {
+.right-header imsg {
   width: 1.5625em;
   height: 1.5625em;
   padding: 0.1875em;
@@ -102,7 +102,7 @@ header.night {
 
 @media only screen and (max-width: 820px){
   header{
-    padding: 5px 1%;
+    padding: 0.3125em 1%;
   }
 
   .header-button{
