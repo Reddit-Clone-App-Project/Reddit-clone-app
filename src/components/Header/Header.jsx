@@ -12,6 +12,8 @@ import NotificationNight from "../../assets/images/header/notification-night.svg
 import CreatePost from "../../assets/images/general/new.svg";
 import CreatePostNight from "../../assets/images/general/new-night.svg";
 import Avatar from "../../assets/images/header/avatar.png";
+import MobileLeftSideBar from "../../assets/images/header/mobile-left-side-bar.svg";
+import MobileLeftSideBarDark from "../../assets/images/header/mobile-left-side-bar-dark.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { selectNightMode } from "../../redux/slices/nightModeSlice";
 import SearchBar from "./SearchBar/SearchBar";
@@ -42,17 +44,23 @@ const Header = () => {
 
   return (
     <header className={`${nightModeState ? 'night' : ''}`}>
-      <Link to={`/`} className="left-header">
-        <img src={RedditLogo} alt="Reddit Logo" />
-        <img
-          src={nightModeState ? RedditTextLogoNight : RedditTextLogoMorning}
-          alt="Reddit Logo"
-        />
-      </Link>
+      <div className="left-header">
+        <img className="mobile-left-side-bar" src={nightModeState ? MobileLeftSideBarDark : MobileLeftSideBar} alt="Open Menu Bar In Mobile" onClick={() => {
+          document.getElementById('left-side-bar').style.display = document.getElementById('left-side-bar').style.display == "none" ? "block" : "none";
+        }}/>
+        <Link to={`/`} className="logo">
+          <img src={RedditLogo} alt="Reddit Logo" />
+          <img
+            src={nightModeState ? RedditTextLogoNight : RedditTextLogoMorning}
+            alt="Reddit Logo"
+            className="logo-text"
+          />
+        </Link>
+      </div>
       <SearchBar />
       <div className="right-header">
         <div
-          className="header-button"
+          className="header-button ads-header-button"
           onClick={() => {
             openLink(
               "https://ads.reddit.com/onboarding?utm_name=nav_cta&utm_source=web3x_consumer"
@@ -71,7 +79,7 @@ const Header = () => {
             src={nightModeState ? CreatePostNight : CreatePost}
             alt="create post"
           />
-          <span>Create Post</span>
+          <span>Create</span>
         </div>
 
         <div className="header-button">

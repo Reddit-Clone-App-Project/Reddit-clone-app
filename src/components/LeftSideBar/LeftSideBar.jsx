@@ -52,7 +52,7 @@ const LeftSideBar = () => {
     const [resourcesOpen, setResourcesOpen] = useState(true);
 
     return (
-    <nav className={`left-side-bar custom-scroll ${nightModeState ? 'night' : ''}`}>
+    <nav id='left-side-bar' className={`left-side-bar custom-scroll ${nightModeState ? 'night' : ''}`}>
             <div className='home-bar'>
                 <Link to={`/`} className='bar-btn'>
                     <img className='icon-nav' src={nightModeState ? HomeDark : Home} alt='Home'/>
