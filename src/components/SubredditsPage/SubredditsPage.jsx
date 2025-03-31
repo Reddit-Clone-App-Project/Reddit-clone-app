@@ -34,11 +34,19 @@ const SubredditsPage = () => {
     return (
         <div className={styles.subredditsPage}>
             <div className={styles.header}>
-                <div className={styles.banner}
-                    style={{
-                        backgroundImage: subreddit?.banner ? `url(${subreddit?.banner})` : undefined,
-                        backgroundColor: !subreddit?.banner && subreddit?.bannerColor ? subreddit?.bannerColor : undefined,
-                    }}>
+                <div className={styles.banner}>
+                    <SafeImage
+                        src={subreddit?.banner}
+                        alt={`Banner of r/${subredditName}`}
+                        fallback={null}
+                        className={styles.bannerImage}
+                    />
+                    <SafeImage
+                        src={subreddit?.bannerColor}
+                        alt={`Banner of r/${subredditName}`}
+                        fallback={null}
+                        className={styles.bannerImageColor}
+                    />
                 </div>
                 <div className={styles.headerContent}>
                     <SafeImage src={icon} fallback="/mock_images/reddit-4.svg" alt={`Icon of r/${subredditName}`} className={styles.icon} />
