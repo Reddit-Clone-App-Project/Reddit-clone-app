@@ -5,11 +5,11 @@
     border: 0.0625em;
     border-radius: 0.9375em;
     background-color: #F6F8F9;
-    padding: 0.625em 1.5625em;
-    margin-right: 2.5em; 
+    padding: 0.625em 0.5em;
+    margin-right: 2em; 
     margin-left: auto;
-    margin-top: 15em;
-    width: 18%;
+    margin-top: 11em;
+    width: 17%;
 }
 
 .rightSideBar.dark {
@@ -18,7 +18,7 @@
 
 h3 {
     font-weight: 600;
-    margin-bottom: 1.25em;
+    margin-bottom: 0.5em;
     text-align: center;
 }
 
@@ -28,4 +28,17 @@ h3 {
     font-size: 1.25em;
     padding: 0.125em;
     margin: 18.75em 3.125em 0 auto;
+}
+
+@media only screen and (min-width: 1450px) {
+    .rightSideBar {
+        margin-top: 18em;
+        margin-right: 2.5em;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .rightSideBar {
+       display: none;
+    }
 }

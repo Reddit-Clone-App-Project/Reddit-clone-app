@@ -1,7 +1,8 @@
 .subredditsPage {
-    width: 88%;
-    margin-left: 25em;
+    width: 100%;
+    margin-left: 11.5em;
     margin-top: 4.375em;
+    width: fit-content;
 }
 
 .header {
@@ -67,4 +68,132 @@
     height: 100%;
     border-radius: 0.625em;
     margin-bottom: -2.1875em;
+}
+
+@media only screen and (min-width: 2100px) {
+    .subredditsPage {
+        margin-left: 23em;
+        margin-top: 5em;
+    }
+
+    .members {
+        margin-right: 6em;
+    }
+}
+
+@media only screen and (min-width: 1550px) and (max-width: 2100px) {
+    .subredditsPage {
+        margin-left: 17em;
+        margin-top: 5em;
+    }
+
+}
+
+@media only screen and (min-width: 780px) and (max-width: 1150px) {
+
+    .subredditsPage {
+        
+        margin-top: 4em;
+        margin-left: 0;
+    }
+
+    .header {
+        margin: auto;
+        width: 95%;
+    }
+
+    .bannerImage,
+    .bannerImageColor {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 780px) and (min-width: 640px) {
+
+    .subredditsPage {
+        margin-left: 0;
+        margin-top: 4em;
+        
+    }
+
+    .title {
+        margin-top: 0.5em;
+        margin-left: 0.2em;
+    }
+
+    .header {
+        margin: auto;
+        width: 95%;
+    }
+
+    .bannerImage,
+    .bannerImageColor {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 640px) and (min-width: 520px) {
+
+    .subredditsPage {
+        margin-left: 0;
+        margin-top: 4em;
+       
+    }
+
+    .headerContent {
+        flex-wrap: wrap;
+    }
+
+    .members {
+        margin-left: 2em;
+    }
+
+    .title {
+        margin-top: 0.5em;
+        margin-left: 0.2em;
+    }
+
+    .header {
+        margin: auto;
+        width: 95%;
+    }
+
+    .bannerImage,
+    .bannerImageColor {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 520px) {
+
+    .subredditsPage {
+        margin-top: 3.5em;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .header {
+        margin-left: 0.5em;
+        margin-right: 0;
+        
+    }
+    
+    .headerContent {
+        flex-wrap: wrap;
+    }
+
+    .members {
+        margin-left: 2em;
+    }
+
+    .title {
+        margin-top: 0.5em;
+        margin-left: 0.2em;
+      }
+
+    .bannerImage,
+    .bannerImageColor {
+        width: 100%;
+    }
 }

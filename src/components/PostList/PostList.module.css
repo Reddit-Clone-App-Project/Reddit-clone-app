@@ -1,6 +1,6 @@
 .postList {
     width: 100%;
-    margin-left: 22em;
+    margin-left: 12.5em;
 }
 
 .loading {
@@ -10,3 +10,46 @@
     padding: 0.125em;
     margin: 6.25em 0 0 auto;
 }
+
+@media only screen and (min-width: 1450px) {
+
+    .postList {
+        margin-left: 20em;
+        margin-top: 2em;
+        
+    }
+}
+
+@media only screen and (min-width: 1450px) and (max-width: 2000px) {
+
+    .postList {
+        margin-left: 15em;
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 1150px) and (max-width: 1450px) {
+
+    .postList {
+        margin-left: 10em;
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .postList {
+        margin-left: 0;
+        margin-top: 0;
+        width: fit-content;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    
+    .postList {
+        margin-left: 0;
+        margin-top: 0;
+    }
+    
+}
+

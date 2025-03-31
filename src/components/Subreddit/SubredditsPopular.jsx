@@ -8,7 +8,7 @@ const SubredditsPopular = ({ subreddit }) => {
     return (
         <div className={styles.subreddit}>
             <div className={styles.firstRow}>
-                <SafeImage src={subreddit?.icon} fallback="/mock_images/reddit-4.svg" alt={`Icon of r/${subreddit.name}`} style={{ width: '30px', marginTop: '8px' }} />
+                <SafeImage src={subreddit?.icon} fallback="/mock_images/reddit-4.svg" alt={`Icon of r/${subreddit.name}`} style={{ width: '1.875em' }} />
                 <Link to={`/r/${subreddit.name}`} className={styles.name}>r/{subreddit.name}</Link>
             </div>
             <p className={styles.members}>{subreddit.subs.toLocaleString()} members</p>
