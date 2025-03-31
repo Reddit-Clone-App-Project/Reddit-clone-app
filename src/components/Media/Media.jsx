@@ -28,7 +28,7 @@ const PostMedia = ({ post }) => {
 
     if (isRedditVideo) {
         return (
-            <video controls style={{ maxWidth:"100%", borderRadius: '8px' }}>
+            <video controls style={{ maxWidth:"100%", borderRadius: '0.5em' }}>
             <source src={post.media.reddit_video.fallback_url} type="video/mp4" className={styles.media}/>
             Il tuo browser non supporta il video.
             </video>
@@ -55,7 +55,7 @@ const PostMedia = ({ post }) => {
                   left: 0,
                   width: '100%',
                   height: '100%',
-                  borderRadius: '8px'
+                  borderRadius: '0.5em',
                 }}
               />
             </div>
@@ -71,9 +71,9 @@ const PostMedia = ({ post }) => {
             rel="noopener noreferrer"
             style={{
               display: 'inline-block',
-              padding: '10px',
+              padding: '0.625em',
               background: '#f0f0f0',
-              borderRadius: '8px',
+              borderRadius: '0.5em',
               textDecoration: 'none',
               color: '#333'
             }}

@@ -47,8 +47,8 @@ const MarkdownRenderer = ({ content }) => {
               style={{
                 backgroundColor: '#333',
                 color: '#333',
-                borderRadius: '3px',
-                padding: '2px 4px',
+                borderRadius: '0.1875em',
+                padding: '0.125em 0.25em',
                 cursor: 'pointer'
               }}
               title="Spoiler"

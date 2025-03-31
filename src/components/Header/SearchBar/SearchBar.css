@@ -1,10 +1,10 @@
 .middle-header {
   position: relative;
-  height: 40px;
-  border-radius: 20px;
+  height: 2.5em;
+  border-radius: 1.25em;
   width: 25%;
   background-color: hsl(0, 0%, 93%);
-  padding: 0 16px;
+  padding: 0 1em;
   transition: all 0.2s ease-in-out;
 }
 
@@ -16,30 +16,30 @@
 }
 
 .middle-header img {
-  width: 16px;
-  height: 16px;
-  margin-right: 12px;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.75em;
   opacity: 0.6;
 }
 
 .middle-header input {
-  padding: 8px 0;
+  padding: 0.5em 0;
   border: none;
   outline: none;
   width: 100%;
-  font-size: 14px;
+  font-size: 0.875em;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
 }
 
 .middle-header:hover {
   background-color: hsl(0, 0%, 90%);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.0625em 0.1875em rgba(0, 0, 0, 0.1);
 }
 
 .middle-header:focus-within {
   background-color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
 }
 
 .middle-header:focus-within input {
@@ -52,11 +52,11 @@
   left: 0;
   width: 100%;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 8px;
+  border-radius: 0.5em;
+  box-shadow: 0 0.25em 0.75em rgba(0, 0, 0, 0.1);
+  margin-top: 0.5em;
   /* z-index: 1000; */
-  max-height: 400px;
+  max-height: 25em;
   overflow-y: auto;
   animation: dropdownFade 0.2s ease-in-out;
 }
@@ -69,24 +69,24 @@
 }
 
 .dropdown h5 {
-  padding: 8px 16px;
+  padding: 0.5em 1em;
   margin: 0;
   color: #666;
-  font-size: 12px;
-  border-bottom: 1px solid #eee;
+  font-size: 0.75em;
+  border-bottom: 0.0625em solid #eee;
 }
 
 .dropdown-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
+  gap: 0.75em;
+  padding: 0.75em 1em;
   cursor: pointer;
 }
 
 .dropdown-item img {
-  width: 24px;
-  height: 24px;
+  width: 1.5em;
+  height: 1.5em;
   border-radius: 50%;
   margin: 0;
 }
@@ -96,9 +96,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  padding: 12px 16px;
-  border-bottom: 1px solid #eee;
+  gap: 1em;
+  padding: 0.75em 1em;
+  border-bottom: 0.0625em solid #eee;
   cursor: pointer;
 }
 
@@ -111,14 +111,14 @@
 }
 
 .trending-item-left p:first-child {
-  font-size: 14px;
-  margin-bottom: 4px;
+  font-size: 0.875em;
+  margin-bottom: 0.25em;
 }
 
 .trending-item-left p:nth-child(2) {
-  font-size: 12px;
+  font-size: 0.75em;
   color: #666;
-  margin-bottom: 4px;
+  margin-bottom: 0.25em;
   /* Limit to 2 lines */
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -128,15 +128,15 @@
 }
 
 .trending-item-left p:last-child {
-  font-size: 12px;
+  font-size: 0.75em;
   color: #0079D3;
 }
 
 .trending-item-right {
-  width: 50px;
-  height: 50px;
+  width: 3.125em;
+  height: 3.125em;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 0.25em;
 }
 
 .trending-item:hover {
@@ -144,41 +144,41 @@
 }
 
 .dropdown-item:first-child {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
 }
 
 .dropdown-item:last-child {
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
 }
 
 /* Apply night mode */
-.middle-header.night{
+.middle-header.night {
   background-color: hsl(0, 0%, 22%);
 }
 
-.middle-header.night .search-input{
+.middle-header.night .search-input {
   color: hsl(0, 0%, 90%);
 }
 
-.middle-header.night .search-input:focus{
-  background-color: hsl(0, 0%, 22%)!important;
+.middle-header.night .search-input:focus {
+  background-color: hsl(0, 0%, 22%) !important;
 }
 
-.middle-header.night .search-input::placeholder{
+.middle-header.night .search-input::placeholder {
   color: hsl(0, 0%, 90%);
 }
 
-.middle-header.night .dropdown{
+.middle-header.night .dropdown {
   background-color: hsl(0, 0%, 22%);
-  color: hsl(0, 0%, 90%)
+  color: hsl(0, 0%, 90%);
 }
 
 .middle-header.night .trending-item:hover {
   background-color: hsl(0, 0%, 25%);
 }
 
-.middle-header.night .dropdown-item:hover{
+.middle-header.night .dropdown-item:hover {
   background-color: hsl(0, 0%, 25%);
 }
