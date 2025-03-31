@@ -7,14 +7,15 @@ header {
   border-bottom: 1px solid #e1e1e1;
   height: 50px;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   top: 0;
   z-index: 999;
 }
 
 .left-header,
 .middle-header,
-.right-header {
+.right-header,
+.logo {
   display: flex;
   align-items: center;
 }
@@ -24,12 +25,19 @@ header {
   cursor: pointer;
 }
 
-.left-header img:first-child {
+.mobile-left-side-bar{
+  width: 20px;
+  height: 20px;
+  margin-right: 10%;
+  display: none;
+}
+
+.logo img:first-child {
   width: 35px;
   height: 35px;
 }
 
-.left-header img:last-child {
+.logo img:last-child {
   margin-left: 10px;
   width: 90px;
 }
@@ -84,4 +92,38 @@ header.night .header-button:hover{
 header.night{
   background-color: #0E1113;
   border-bottom: 1px solid #333333; 
+}
+
+@media only screen and (max-width: 1150px){
+  .mobile-left-side-bar{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 820px){
+  header{
+    padding: 5px 1%;
+  }
+
+  .header-button{
+    margin-right: 0;
+    margin-left: 1%;
+  }
+
+  .ads-header-button{
+    display: none;
+  }
+
+  .logo-text{
+      display: none;
+  }
+
+  .mobile-left-side-bar{
+    margin-right: 20%;
+  }
+}
+
+
+@media only screen and (max-width: 610px){
+
 }
